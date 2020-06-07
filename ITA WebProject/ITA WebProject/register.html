@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<title>
+	AutoMart-The Best Online Vehical Store in Sri Lanka
+</title>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style2.css">
+	<script>
+		function validateForm()
+		{
+			var fname = document.forms["form"]["fname"].value;
+			var lname = document.forms["form"]["lname"].value;
+			var gender = document.forms["form"]["gender"].value;
+			var email = document.forms["form"]["email"].value;
+			var password = document.forms["form"]["password"].value;
+			var cnfrmpassword = document.forms["form"]["cnfrmpassword"].value;
+			
+			if(fname==null||fname=="")
+			{
+				alert("First name must be filled out.");
+				return false;
+			}
+			
+			var male =document.getElementById("male").checked;
+			var female=document.getElementById("female").checked;
+			if(male && female)
+			{
+				alert("Gender is not specified.");
+				return false;
+			}
+			
+			var atpos = email.indexOf("@");
+			var dotpos= email.lastIndexOf(".");
+			if(atpos<1 || dotpos<atpos+2 || dotpos+2>email.legth)
+			{
+				alert("E-mail is Invalid");
+				return false;
+			}
+			
+			if((password=="null"||password=="")||(cnfrmpassword=="null"||cnfrmpassword==""))
+			{
+				alert("Please input password.");
+				return false;
+			}
+			else if(password!=cnfrmpassword)
+			{
+				alert("Password do not match");
+				return false;
+			}
+		}
+	</script>
+</head>
+
+<body>
+	
+	<div id="navbar">	
+	</div>
+		<div class="container">		
+			<ul class="navigationBar">
+				<div id="logoArea">
+					<li class="logo"><a href="index.html" style="font-family:logo;font-size:30px;">AutoMart</a></li>
+				</div>
+				<div id="navArea">
+					<li class="nav"><a class="active" href="index.html">Home</a></li>
+					<li class="nav"><a href="findAd.php">Find a Car</a></li>
+					<li class="nav"><a href="login.html">Login</a></li>
+					<li class="nav"><a href="postAd.html">Post your Ad</a></li>	
+					<li class="nav"><a href="aboutUs.html">About Us</a></li>
+					<li class="nav"><a href="contactUs.html">Contact Us</a></li>	
+				</div>
+			</ul>
+		
+			
+			<br><br><br>
+			<img class="header" src="header/header.jpg" alt="Norway" width="1000" height="300">
+		
+			<br><br>
+		
+			<div id="basicSidebar">
+				<img src="gif/giphy.gif" width="360px" style="text-align:center;"><br>
+				<img src="gif/gifs.gif" width="360px" style="text-align:center;"><br>
+				<img src="gif/gif3.gif" width="360px" style="text-align:center;">
+				
+			</div>
+			<div id="main">
+			
+			<h3>Join with us to find the best deals.</h3>
+			<hr><br>
+			<form name="form" method="post" action="register.php" onsubmit="return validateForm()">
+					<table>
+						<tr>
+							<td>First Name</td>
+							<td><input type="text" name="fname"></td> 
+						</tr>
+						<tr>
+							<td>Last Name</td>
+							<td><input type="text" name="lname"></td>
+						</tr>
+						<tr>
+							<td>Gender</td>
+							<td><input type="radio" id="male" name="gender" value="Male">Male<input type="radio" id="female" name="gender" value="Female">Female</td>
+						</tr>
+						<tr>
+							<td>Email</td>
+							<td><input type="text" name="email">
+						</tr>
+						<tr>
+							<td>Password</td>
+							<td><input type="password" name="password"></td>
+						</tr>
+						<tr>
+							<td>Confirm Password</td>
+							<td><input type="password" name="cnfrmpassword"></td>
+						</tr>
+					</table>
+					<input class="btn" type="submit" value="Submit">
+			</form>
+			
+			</div>
+		</div>
+		
+		<footer id="footer" style="float:right; width:100%;">
+			<div class="container">
+				<br><br>
+				<p class="foot" style="margin-left:350px;">Copyright  © </p><p class="foot" style="font-family:'logo';"> AutoMart</p><p class="foot"> , 2016 - All Right Reserved.</p>
+			</div>
+		</footer>
+		
+</body>
+</html>
